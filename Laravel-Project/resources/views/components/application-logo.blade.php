@@ -1,0 +1,1 @@
+<img src="build/assets/images/tm_logo.png" alt="Website logo" width="65px"/>
