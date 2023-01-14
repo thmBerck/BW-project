@@ -49,10 +49,11 @@
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
+                        @if(Auth::user->role == 2)
                         <x-dropdown-link :href="route('admindashboard')">
                             {{ __('Admin Dashboard') }}
                         </x-dropdown-link>
-
+                        @endif
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

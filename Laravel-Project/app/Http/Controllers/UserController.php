@@ -29,4 +29,11 @@ class UserController extends Controller
         
         return redirect('/users')->with('success', 'User created successfully!');
     }
+    public function update(Request $request) {
+        $user = User::where('id', $request->user()->id)->first();
+        $user -> role = $request -> role;
+        $user ->save();
+
+        return redirect('/admindashboard')->with('success', 'User role changed succesfully!');
+    }
 }

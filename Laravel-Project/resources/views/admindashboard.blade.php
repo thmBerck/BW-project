@@ -41,20 +41,19 @@ $roles = DB::table('roles')->get();
                     </tr>
                 
                 @foreach($users as $user)
-                <?php $user_role = DB::table('user_roles')->where('user_id', $user->id)->first(); ?>
                 <tr>
                     <th>
                 {{$user -> name}}
                     </th>
                      <th>
-                        <form id="roleForm" method="PUT" action="{{url('user_roles')}}">
-                            <select id="roles" name="role_id" onchange="document.getElementById('roleForm').submit()">
+                        <form id="roleForm" method="PUT" action="{{url('user_role')}}">
+                            <select id="roles" name="role" onchange="document.getElementById('roleForm').submit()">
                                 @foreach($roles as $role)
-                                    @if($role->id != $user_role->role_id)
+                                    @if($role->id != $user->role)
                                         <option>{{$role->id}}</option>
                                     @endif
-                                    @if($role->id == $user_role->role_id)
-                                        <option selected>{{$user_role -> role_id}}</option>
+                                    @if($role->id == $user->role)
+                                        <option selected>{{$user->role}}</option>
                                     @endif
                                 @endforeach
                             </select>

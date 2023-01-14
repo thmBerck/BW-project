@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserRoleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,7 +43,7 @@ Route::get('/admindashboard', function() {
     return view('admindashboard');
 })->name('admindashboard');
 
-Route::get('/user_roles', [UserRoleController::class, 'update']);
+Route::get('/user_role', [UserController::class, 'update']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
